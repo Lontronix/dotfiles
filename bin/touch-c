@@ -1,0 +1,95 @@
+#!/bin/bash
+# generate a .c file from contained boilerplate 
+#
+# To customize and then use this script for your own:
+# 	Create a ~/bin directory in your account,
+# 	save this to your ~/bin directory,
+# 	chmod +x the file, and then you can use it to create new .c files. 
+#
+# uses /// comment format for doxygen-compatible documentation generation
+# (note: the /// comment format is also C# compatible)
+#
+# boilerplate indentation is 4 SPACES
+#
+# after generation, the user must find and resolve all 'TODO_' comments.
+#
+# BRIEF_DOCS are internal; the .h file has the external, public content. 
+#
+# see also touch-h
+# @author bks: ben k steele
+# Tue Jan 19 09:00:49 EST 2016
+
+SUFFIX="c"
+
+# Get name and strip off suffix if any
+CLASSNAME=${1%%.*}
+
+if [ $# -lt 1 ]
+then
+    echo "Usage: touch-$SUFFIX <filename>"
+    echo Result: new formatted .$SUFFIX file, \"filename.$SUFFIX\"
+    echo "Example: touch-$SUFFIX Thing  ## creates the file Thing.$SUFFIX"
+    echo ""
+    echo "NOTE: edit touch-$SUFFIX to optimize and customize look and feel"
+    exit 1
+else
+    echo "touch-$SUFFIX $CLASSNAME"
+fi
+
+#TAG is for #define stuff
+TAGNAME=`echo $CLASSNAME |tr '[:lower:]' '[:upper:]' |sed -e 's/\.*//'`
+
+if [ -e "$CLASSNAME.$SUFFIX" ] 
+then
+    echo "File already exists...exiting"
+    exit 2
+fi
+
+                ### start boilerplate
+cat > $CLASSNAME.$SUFFIX << BLOCK_HERE
+// 
+// File: $CLASSNAME.$SUFFIX 
+// TODO_DOCS_ $CLASSNAME.$SUFFIX
+// @author TODO_AUTHOR_FULL_NAME_ <$USER>
+// // // // // // // // // // // // // // // // // // // // // // // 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/* TODO_ remove this instruction comment block after reading.
+ * Docstrings for functions declared in a .h file belong in the .h file.
+ * C function docstrings appear before the function declaration.
+ * Function documentation 'docstring' must be publishable.
+ * The docstring should document its input parameters and return values.
+ */
+
+/// TODO_ provide function purpose documentation -- its 'docstring'
+/// TODO_ if main takes no args, change to "main( void )" and remove //@params
+/// @param argc  number of command line arguments, including program name
+/// @param argv  supplied command line arguments, including program name
+/// @returns errorCode  error Code; EXIT_SUCCESS if no error
+
+int main( int argc, char* argv[] ) {
+
+    // TODO_ indentation should be at least 3 spaces; 2 is not enough.
+
+    // TODO_ wrap code lines when they get 'long' (~80 chars). 
+    printf( "TODO_ %s received %i command line arguments.\n",
+            argv[0], argc );
+
+#if 0
+    // TODO_ how to exclude code from compilation instead of commenting out.
+#endif
+
+    return EXIT_SUCCESS ;
+}
+
+// end
+BLOCK_HERE
+                ### end boilerplate
+
+#######
+# derived from
+# $Id: touch-cpp,v 1.1 2011-08-03 17:47:17 bks Exp $
+#
+

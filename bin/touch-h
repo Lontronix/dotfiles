@@ -1,0 +1,85 @@
+#!/bin/bash
+# generate a .h file from contained boilerplate
+#
+# To customize and adapt this script for your own, do the following:
+# 	- Create a ~/bin directory in your account;
+# 	- save this to your ~/bin directory;
+# 	- edit your copy to suit your tastes;
+# 	- chmod +x the file; then use the script to create new .h files.
+#
+# boilerplate uses /// comments for doxygen-compatible, docstring generation.
+#
+# boilerplate indentation is 4 SPACES.
+#
+# after generation, the user must find and resolve all 'TODO_' comments.
+# see also touch-c
+#
+# @author bks: ben k steele
+# Tue Jan 19 09:01:41 EST 2016
+
+SUFFIX="h"
+
+# Get name and strip off suffix if any
+CLASSNAME=${1%%.*}
+
+if [ $# -lt 1 ]
+then
+    echo "Usage: touch-$SUFFIX <filename>"
+    echo Result: new \"filename.$SUFFIX\" file with boilerplate format. 
+    echo "Example: touch-$SUFFIX Thing  ## creates the file Thing.$SUFFIX"
+    echo "Note: the supplied filename represents a module or 'class'."
+    echo ""
+    echo "NOTE: edit touch-$SUFFIX to optimize and customize look and feel"
+    exit 1
+else
+    echo "touch-$SUFFIX $CLASSNAME"
+fi
+
+#TAG is for #define stuff
+TAGNAME=`echo $CLASSNAME |tr '[:lower:]' '[:upper:]' |sed -e 's/\.*//'`
+
+if [ -e "$CLASSNAME.$SUFFIX" ]
+then
+    echo "File already exists...exiting"
+    exit 2
+fi
+
+					### start boilerplate
+cat > $CLASSNAME.$SUFFIX << BLOCK_HERE
+// 
+// File: $CLASSNAME.$SUFFIX 
+// TODO_DOCS_ state the purpose of $CLASSNAME.$SUFFIX
+// @author TODO_AUTHOR_FULL_NAME_ $USER
+// // // // // // // // // // // // // // // // // // // // // // // // 
+
+#ifndef ${TAGNAME}_H
+#define ${TAGNAME}_H
+
+// TODO_ add include files only if needed for the declarations.
+
+/* TODO_ remove this instruction comment block after reading.
+ * Docstrings for functions declared in a .h file belong in the .h file.
+ * C function docstrings appear before the function declaration.
+ * Function documentation 'docstring' must be publishable.
+ * The docstring should document its input parameters and return values.
+ */
+
+/// The TODO_ function consumes a count and produces no result.
+///
+/// @param count  number of something
+
+void TODO_( int count );
+
+#endif // ${TAGNAME}_H
+
+// // // // // // // // // // // // // // // // // // // // // // // // 
+// TODO_ put version control repository information here.
+// 
+BLOCK_HERE
+					### end boilerplate
+
+#######
+# hacked from a cpp version on Mon Sep 16 18:35:51 EDT 2013
+# $Id: touch-h,v 1.2 2013/02/25 18:31:20 bks Exp $
+#
+

@@ -1,0 +1,17 @@
+# various settings that I would like synced across machines
+[core]
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[mergetool]
+	prompt = false
+	keepBackup = true
+[merge]
+	tool = vimdiff 
+[alias]
+	graph = log --oneline --graph --all
+	full-graph = log --all --graph --decorate --pretty=format:\"%C(auto)%h%C(reset) - %C(cyan)%s%C(reset) %C(green)(%ar)%C(reset)%C(auto)%d%C(reset)%n%C(bold black) Author: %an <%ae> %ad%n%C(bold black) Committer %cn <%ce> %cd%C(reset)\"
