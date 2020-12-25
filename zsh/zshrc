@@ -9,6 +9,8 @@
 export ZSH="$HOME/.oh-my-zsh" # Path to oh-my-zsh installation.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+export EDITOR="vim"
+
 # Aliases
 alias ghview="gh repo view --web"
 
