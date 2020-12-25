@@ -5,6 +5,7 @@ ln -sf ~/dotfiles/zsh/p10k.zsh ~/.p10k.zsh   # powerline customization file
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc         # zshrc
 ln -sf ~/dotfiles/bin ~/                     # scripts
 ln -sf ~/dotfiles/vimrc ~/.vimrc             # vimrc 
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf     # tmux.conf
 # ln -sf ~/dotfiles/git/.gitconfig ~/      	 # gitconfig
  
 # installing powerlevel 10k
