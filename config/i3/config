@@ -197,6 +197,11 @@ bindsym Mod1+r mode "resize"
 
 exec source ~/.xinitrc
 
+# swap caps lock and escape
+exec_always --no-startup-id xmodmap -e "clear lock"
+exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+
 # Fixes screen tearing
 exec_always compton --backend glx --paint-on-overlay --vsync opengl-swc
 
