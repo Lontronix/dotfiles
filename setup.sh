@@ -6,6 +6,8 @@ ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc         # zshrc
 ln -sf ~/dotfiles/bin ~/                     # scripts
 ln -sf ~/dotfiles/vimrc ~/.vimrc             # vimrc 
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf     # tmux.conf
+ln -sf ~/dotfiles/yabairc ~/.yabairc         # yabairc
+ln -sf ~/dotfiles/skhdrc ~/.skhdrc           # skhdrc
 # ln -sf ~/dotfiles/git/.gitconfig ~/      	 # gitconfig
  
 # installing powerlevel 10k
