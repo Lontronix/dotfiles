@@ -11,6 +11,7 @@ brew 'figlet'
 brew 'cowsay'
 brew 'koekeishiya/formulae/yabai'
 brew 'skhd'
+brew 'neofetch'
 
 # installation of apps from the Mac App Store through the command line
 brew 'mas'
