@@ -2,6 +2,8 @@
 
 Configuration files that I use on my computers.
 
+![hydrogen-frame](https://user-images.githubusercontent.com/31291523/103188818-f1dd3600-4897-11eb-84bd-05d8cf9eb552.png)
+
 ## Installation Guide
 ### hostname
 - create a file called .hostname and set the HOSTNAME enviorment variable.
