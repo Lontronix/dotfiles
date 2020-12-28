@@ -16,3 +16,9 @@ Configuration files that I use on my computers.
 			email = ...
 		[include]
 			path = ~/dotfiles/git/gitconfig
+
+### Homebrew
+- To install apps and packages in Brewfile navigate to dotfiles directory and
+  run 
+	
+		brew bundle
