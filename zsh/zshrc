@@ -12,6 +12,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 export EDITOR="vim"
 export PATH="/usr/local/bin:$PATH" # done to prefer brew git (/usr/local/bin) over default git (/usr/bin)
 
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # Aliases
 alias ghview="gh repo view --web"
 
