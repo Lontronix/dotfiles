@@ -46,6 +46,7 @@ yabai -m config window_gap                   06
 
 # Ignores System Preferences
 yabai -m rule --add label="System Preferences" app="^System Preferences$" manage=off
-
+yabai -m rule --add label="Finder" app="^Finder" manage=off
+yabai -m rule --add label="1Password" app="^1Password" manage=off
 echo "yabai configuration loaded.."
 
