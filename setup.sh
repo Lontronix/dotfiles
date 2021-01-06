@@ -7,7 +7,20 @@ ln -sf ~/dotfiles/bin ~/                     # scripts
 ln -sf ~/dotfiles/vimrc ~/.vimrc             # vimrc 
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf     # tmux.conf
 # ln -sf ~/dotfiles/git/.gitconfig ~/      	 # gitconfig
- 
+
+# linux
+ln -sf ~/dotfiles/config/i3/ ~/.config/
+ln -sf ~/dotfiles/config/polybar ~/.config/
+
+# installing oh-my-zsh
+if [ ! -d $HOME/.oh-my-zsh ]
+then
+	echo "Installing oh my zsh..."
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+	echo "oh my zsh is already installed."
+fi
+
 # installing powerlevel 10k
 if [ ! -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh}/themes/powerlevel10k ]
 then
