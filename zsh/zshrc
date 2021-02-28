@@ -9,6 +9,9 @@
 export ZSH="$HOME/.oh-my-zsh" # Path to oh-my-zsh installation.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Macro Enviorment variables
+export APPLE_ID=lonnie@macro.io
+
 export EDITOR="vim"
 export PATH="/usr/local/bin:$PATH" # done to prefer brew git (/usr/local/bin) over default git (/usr/bin)
 
