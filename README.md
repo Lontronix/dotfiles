@@ -24,3 +24,14 @@ Configuration files that I use on my computers.
   run 
 	
 		brew bundle
+
+### VSCode
+- key repeat
+
+		defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+### Misc macOS Config
+- To enable key repeat run
+	
+		defaults write -g ApplePressAndHoldEnabled -bool false
+
