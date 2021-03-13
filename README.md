@@ -30,6 +30,14 @@ Configuration files that I use on my computers.
 
 		defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
+### SSH Agent
+- To store ssh key password in keychain add this is ~/.ssh/config
+
+		Host *
+		UseKeychain yes
+		AddKeysToAgent yes
+		IdentityFile ~/.ssh/<private_key>
+
 ### Misc macOS Config
 - To enable key repeat run
 	
