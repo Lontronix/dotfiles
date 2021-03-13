@@ -21,6 +21,9 @@ source $(brew --prefix nvm)/nvm.sh
 
 # Aliases
 alias ghview="gh repo view --web"
+alias macro="cd ~/developer/macro"
+alias dev="cd ~/Developer"
+alias csh="cd ~/Developer/CSH"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
