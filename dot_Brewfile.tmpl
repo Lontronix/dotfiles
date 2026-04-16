@@ -10,6 +10,7 @@ brew "neovim"
 brew "node"
 brew "speedtest-cli"
 brew "uv"
+brew "mas"
 
 cask "1password"
 cask "chatgpt"
@@ -27,3 +28,26 @@ cask "xcodes-app"
 
 cargo "bat"
 cargo "lsd"
+
+mas "1Password for Safari", id: 1569813296
+mas "Amphetamine", id: 937984704
+mas "Barbee", id: 1548711022
+mas "DevCleaner", id: 1388020431
+mas "Developer", id: 640199958
+mas "Fantastical", id: 975937182
+mas "Kagi for Safari", id: 1622835804
+mas "Monodraw", id: 920404675
+mas "NextDNS", id: 1464122853
+mas "Slack", id: 803453959
+mas "Tailscale", id: 1475387142
+mas "TestFlight", id: 899247664
+mas "Tot", id: 1491071483
+{{ if not .work }}
+mas "Aeronaut", id: 6670275450
+mas "Capture", id: 6458535284
+mas "Cardhop", id: 1290358394
+mas "Day One", id: 1055511498
+mas "Ivory", id: 6444602274
+mas "Jump Desktop", id: 524141863
+mas "Pinning", id: 6472634746
+{{ end -}}
