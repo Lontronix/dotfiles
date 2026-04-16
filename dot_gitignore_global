@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Claude
+.claude/
+
+# Xcode
+*.xcuserstate
+xcuserdata/
+
+# Nova
+.nova/
+
+# JetBrains
+.idea/
+
+# VS Code
+.vscode/
