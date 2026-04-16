@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+# This script must run after install-packages (which installs Homebrew Ruby).
+# Chezmoi runs run_once_after_ scripts in alphabetical order, so this file
+# is named to sort after install-packages.
+gem install mdless
+{{ end -}}
