@@ -4,6 +4,16 @@ Managed with [chezmoi](https://chezmoi.io).
 
 ## Setup
 
+Make sure [HomeBrew](https://brew.sh) is installed.
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
+
 ```
 chezmoi init --source ~/Developer/Source.dev/dotfiles
 ```
