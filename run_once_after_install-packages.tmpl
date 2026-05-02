@@ -1,2 +1,4 @@
 #!/bin/sh
-brew bundle install --file ~/.Brewfile	
+brew bundle install --no-upgrade --file ~/.Brewfile
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh}/themes/powerlevel10k
