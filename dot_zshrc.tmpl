@@ -2,9 +2,11 @@
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:/opt/homebrew/lib/ruby/gems/4.0.0/bin:$PATH"
 {{ if .work }}
-export PATH="~/Developer/Fetch.dev/ios-fetch-rewards/bin"
+# Fetch specific...
+export PATH="${HOME}/Developer/Fetch.dev/ios-fetch-rewards/bin:$PATH"
 {{ end -}}
 
+# Welcome message
 neofetch
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
