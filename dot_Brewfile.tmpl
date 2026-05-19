@@ -57,7 +57,7 @@ mas "Tailscale", id: 1475387142
 mas "TestFlight", id: 899247664
 mas "Tot", id: 1491071483
 
-{{ if ( or (not .work) (not .server) ) }}
+{{ if ( and (not .work) (not .server) ) }}
 mas "Aeronaut", id: 6670275450
 mas "Capture", id: 6458535284
 mas "Cardhop", id: 1290358394
