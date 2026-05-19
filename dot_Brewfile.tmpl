@@ -23,12 +23,19 @@ cask "claude"
 cask "claude-code"
 cask "font-sf-mono-nerd-font-ligaturized"
 cask "iterm2"
+
+{{ if not .server }}
 cask "karabiner-elements"
 cask "kindavim"
+{{ end - }}
+
 cask "nova"
 cask "scrolla"
 cask "setapp"
+
+{{ if not .server }}
 cask "spotify"
+{{ end - }}
 cask "updatest"
 cask "visual-studio-code"
 cask "xcodes-app"
@@ -57,4 +64,4 @@ mas "Day One", id: 1055511498
 mas "Ivory", id: 6444602274
 mas "Jump Desktop", id: 524141863
 mas "Pinning", id: 6472634746
-{{ end -}}
+{{ end - }}
