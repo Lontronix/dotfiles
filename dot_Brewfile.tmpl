@@ -27,7 +27,7 @@ cask "iterm2"
 {{ if not .server }}
 cask "karabiner-elements"
 cask "kindavim"
-{{ end - }}
+{{ end }}
 
 cask "nova"
 cask "scrolla"
@@ -35,7 +35,7 @@ cask "setapp"
 
 {{ if not .server }}
 cask "spotify"
-{{ end - }}
+{{ end }}
 cask "updatest"
 cask "visual-studio-code"
 cask "xcodes-app"
@@ -56,12 +56,16 @@ mas "Slack", id: 803453959
 mas "Tailscale", id: 1475387142
 mas "TestFlight", id: 899247664
 mas "Tot", id: 1491071483
-{{ if not .work }}
+
+{{ if ( or (not .work) (not .server) ) }}
 mas "Aeronaut", id: 6670275450
 mas "Capture", id: 6458535284
 mas "Cardhop", id: 1290358394
 mas "Day One", id: 1055511498
 mas "Ivory", id: 6444602274
+{{ end }}
+
+{{ if not .work }}
 mas "Jump Desktop", id: 524141863
 mas "Pinning", id: 6472634746
-{{ end - }}
+{{ end }}
