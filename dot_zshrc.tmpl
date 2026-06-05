@@ -48,6 +48,8 @@ export EDITOR="nova --wait"
 # User defined aliases
 source ~/.zsh_aliases
 
+[[ -f "$HOME/.zsh_secrets" ]] && source "$HOME/.zsh_secrets"
+
 # Enables Vim Keybindindings
 bindkey -v
 
