@@ -55,6 +55,8 @@ bindkey -v
 
 {{ if .work }}
 # wt (https://worktrunk.dev) init
-[[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 {{ end -}}
+
+[[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
 
