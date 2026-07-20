@@ -14,6 +14,13 @@
 	keepBackup = true
 [merge]
 	tool = vimdiff
+[push]
+	# Push the current branch to a remote branch of the SAME name, never the
+	# upstream's name — a mis-set upstream can't send a push to development.
+	default = current
+	# First push of a branch with no upstream auto-creates origin/<same-name>
+	# and sets tracking (no manual `git push -u` needed).
+	autoSetupRemote = true
 [alias]
     graph = log --oneline --graph --all --pretty=format:"%C(auto)%h%d %s%C(reset) %C(green)(%ar)%C(reset)"
 	full-graph = log --all --graph --decorate --pretty=format:"%C(auto)%h%C(reset) - %C(cyan)%s%C(reset) %C(green)(%ar)%C(reset)%C(auto)%d%C(reset)%n%C(bold black) Author: %an <%ae> %ad%n%C(bold black) Committer %cn <%ce> %cd%C(reset)"
