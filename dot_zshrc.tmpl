@@ -52,6 +52,32 @@ bindkey -v
 {{ if .work }}
 # wt (https://worktrunk.dev) init
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+# wtc — create a git worktree via an interactive Claude session, then cd into it.
+# Pass a Jira/Linear link, a bare ticket key, a branch name, or a name for a new
+# branch. Claude runs the manage-worktrees skill (asks you to confirm the
+# name/branch type), and on exit this drops your shell into the new worktree.
+# The plumbing: WT_CD_FILE is inherited by Claude's shell; wt.sh writes the
+# resolved worktree path there; a subprocess can't cd the parent, so the cd
+# lives here.
+wtc() {
+  emulate -L zsh
+  if (( $# == 0 )); then
+    print -u2 "usage: wtc <ticket-url | ticket-key | branch | name>"
+    return 1
+  fi
+  local cd_file dest=""
+  cd_file="$(mktemp "${TMPDIR:-/tmp}/wt-cd.XXXXXX")" || return 1
+  WT_CD_FILE="$cd_file" claude "Use the manage-worktrees skill to create a git worktree for: $*"
+  [[ -s "$cd_file" ]] && dest="$(<"$cd_file")"
+  rm -f "$cd_file"
+  if [[ -n "$dest" && -d "$dest" ]]; then
+    cd "$dest" && print "→ $PWD"
+  else
+    print -u2 "wtc: no worktree path was recorded; staying in $PWD"
+    return 1
+  fi
+}
 {{ end -}}
 
 [[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
