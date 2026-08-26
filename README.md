@@ -35,6 +35,19 @@ Then apply the dotfiles:
 chezmoi apply
 ```
 
+## Claude Code Skills
+
+This repo also holds Claude Code skills under `skills/` (ignored by chezmoi via
+`.chezmoiignore`, so they're never applied to `~`). To use one as a global
+skill, symlink it into `~/.claude/skills`:
+
+```
+ln -s ~/Developer/Source.dev/dotfiles/skills/manage-dotfiles ~/.claude/skills/manage-dotfiles
+```
+
+Claude Code discovers it on next launch. Because it's a symlink, edits to the
+skill in this repo take effect immediately — the repo stays the source of truth.
+
 ## Defaults Customization
 
 ### Disable Press and Hold
