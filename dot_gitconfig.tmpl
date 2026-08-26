@@ -30,6 +30,10 @@
 	st = status
 	unstage = reset HEAD
 	last = log -1 HEAD
+	{{ if .work }}
+	# Fetch the latest development and merge it into the current branch
+	mdev = !git fetch origin development && git merge origin/development
+	{{ end }}
 [user]
 	{{ if .work }}
 	email = "l.gerol@fetchrewards.com"
