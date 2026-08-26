@@ -78,6 +78,41 @@ wtc() {
     return 1
   fi
 }
+
+# tticket — open the Jira ticket referenced in the current git branch.
+# Extracts a ticket key from the branch name (e.g. NBS-1724, MOBILE-3170) and
+# opens it in the browser. Prints an error if the branch has no obvious ticket id.
+tticket() {
+  emulate -L zsh
+  local branch key seg
+  branch="$(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
+  if [[ -z "$branch" ]]; then
+    print -u2 "tticket: not inside a git repository"
+    return 1
+  fi
+
+  # Prefer an UPPERCASE key anywhere in the branch (NBS-1724, ...-NBS-1229).
+  key="$(print -r -- "$branch" | grep -oE '[A-Z]{2,}-[0-9]+' | head -n1)"
+
+  # Fall back to a lowercase key that is a whole "/"-delimited segment (nbs-1773).
+  if [[ -z "$key" ]]; then
+    for seg in ${(s:/:)branch}; do
+      if [[ "$seg" =~ '^[A-Za-z]{2,}-[0-9]+$' ]]; then
+        key="${(U)seg}"
+        break
+      fi
+    done
+  fi
+
+  if [[ -z "$key" ]]; then
+    print -u2 "tticket: no Jira ticket id found in branch '$branch'"
+    return 1
+  fi
+
+  local url="https://fetchrewards.atlassian.net/browse/$key"
+  print "Opening $url"
+  open "$url"
+}
 {{ end -}}
 
 [[ -f "$HOME/fig-export/dotfiles/dotfile.zsh" ]] && builtin source "$HOME/fig-export/dotfiles/dotfile.zsh"
